@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "dishsnap",
+  "private_key_id": "26a05de8ef9a2d71d3489e9199f8e474a5c97887",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCdizYX9FFEmyRm\nHezX5ZO39QNLFoiZi3ech3uHqHNr5OAP1SC/NQWdUfYDuf0rhgc/SvoxX+gNQzMj\nMGZCyguGuW75CvwcL950te420CbhgMrWzjkrQwfteif7YFJhyBRweGMXxiqhG2d9\nOtKxH3gXBD7lH+mfcxN/IsIjb/81mNaVyX2owrjj1avfxgezb1tlGg23kzwp9dY9\nLcqeQ2cGsgT/S10UKuJ8ehc+nI75TvX9l/7IhIYkACZpdGmC+qVTXe5vG3wan2Zn\n5XqmFsxyi+VoX7DwvEWws6K+HRHoHMSpEdDM+DxyhAjtZqBmIygH9cIpw82a/nvo\no5sI36w9AgMBAAECggEAR2bNJO0rmfrwc8GzUqQvn2uRywnS7jgqBUzYHUMo0Kki\nLbrMBSzcNxFq/QRh7ERp63MpUpBjhQNEXXn1luaoc65+T6v9WC8P1PiRltEfFgv/\nonxDp8pRAP3gugrNO5jpPpIpYyCCuJLJhBXRYMpg7JmVgdXFVelbWD8iGtqLIbhF\nj7wmKmypMyuDRepgWEh9pbcit0cxqIDgdE249RqetojqD6DboIFPb+hEKRDv+Hqs\nWSm8s8i0V9Dqq6e+ViSF/WAKfiHIXWmMuYH+eE5Mq3zHfkEJSvxA7AoHQfi28uAr\nAWS7pm/bgZHNBafasMgdYimy0eR66pSxz0maLfKv1wKBgQDUlKVmP/+m+F/PpgFS\nZzzq/jLr98T5PfZmfvN9M5sJMs8RceSx3QnLPeX+53qf1fD3f70e+K9UZfs9WpwY\nSv/6zQ0vUYDLRG4801/fjxVfQSsGpla3rEP5ktihwgNpWUybbZP2t/XwaRAOLHsm\nTaSiXmVUldNSAIC2+WTXd+UXSwKBgQC9uNCB1EqrJo7E4vVhcaWrM7RpKCH+XtoG\n5elX/2nKkMMfDi359266vt4c3vkAzH4hfEFlZhgDyWBj9iTs8bYVzKqHniAfb5B7\nG/bpwWJRv4ZCORPksJwQ7/lFQRpESTKza+Nw+6BkaD+lNUHrqQDJCHyVWTvwEroY\n99E8iPxtlwKBgFPf+oqngbVdlmAVvbvHpA+MEIduETfOLOQv/t5NeERe2bimWXec\nIPsiBxdWOdnKzfK5YeNQd80zF7gTgjdLkEhik2syG0EYVO6G7/MDP4l/6vwKsXhy\n7bcRK4xXQoVUiJdi2tijqNQcgAs3nbd1NxohaJXBL8nRDPgk2pbxZWCVAoGBALVm\n6/7nREnngSUiOStl5dkPhBXz6KT2fpOP65BXSAkGZ3rfLPjQLBDlBS0nyYCJBqTv\n0PuqJZYhS0fpB5+C8e5gFkG74M0N+GCt+WXCoUa20SGqv6mvcFoFihs8x2e5cX/6\nzaqu/cpjn09Q3+n7WyPdOHn4q4W98jCDa43tESebAoGBAJ15YT6SRO3aslxVfImE\nkZbtYulEz65ePSIJ9ITJtLOC3kKMY8CVvckgOD2TD7GTbbpIIIcLj6a8Jm7Y+w3C\nzlD33VYFU9juaiXQ0IfDLp6xqQf3Ng6fUfpniWg1B1cT1nMggfTnL/vMTOHgOUBj\n2XVeGOUdU+jCHoqL0QldvAC/\n-----END PRIVATE KEY-----\n",
+  "client_email": "googledrive@dishsnap.iam.gserviceaccount.com",
+  "client_id": "113183080055861469662",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/googledrive%40dishsnap.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
