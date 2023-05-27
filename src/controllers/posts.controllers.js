@@ -2,6 +2,7 @@ import { uploadFile } from "../uploads/driver.uploads.js";
 import { v4 as uuid } from "uuid";
 import fs from "fs";
 import { db } from "../database/database.connection.js";
+import { createNewPost } from "../repositories/posts.repositories.js";
 
 export default class PostsControllers {
   async createPost(req, res) {
@@ -29,12 +30,7 @@ export default class PostsControllers {
       }
       const url = `https://drive.google.com/uc?id=${fileId}`;
 
-      await db.query(
-        `
-            INSERT INTO posts ("userId", "imageUrl", "caption") VALUES ($1, $2, $3)
-        `,
-        [userId, url, caption || null]
-      );
+      await createNewPost(userId, url, caption);
 
       return res.sendStatus(200);
     } catch (err) {
