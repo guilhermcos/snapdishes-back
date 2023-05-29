@@ -4,14 +4,19 @@ import tokenValidation from "../middlewares/token.validation.js";
 import multer from "multer";
 
 const usersControllers = new UsersControllers();
-const userRouter = Router();
+const usersRouter = Router();
 const upload = multer({ dest: "uploads/" });
 
-userRouter.post(
+usersRouter.post(
   "/upload/avatarimage",
   tokenValidation,
   upload.single("image"),
   usersControllers.setAvatarImage
 );
+usersRouter.get("/users/me", tokenValidation, usersControllers.getSelfProfile);
+usersRouter.get("/users/search/:searchString", tokenValidation, usersControllers.searchUsers);
+usersRouter.get("/users/profile/:id", tokenValidation, usersControllers.getProfileInfo);
+usersRouter.post("/users/follow/:id", tokenValidation, usersControllers.followUser);
+usersRouter.post("/users/unfollow/:id", tokenValidation, usersControllers.unfollowUser);
 
-export default userRouter;
+export default usersRouter;
