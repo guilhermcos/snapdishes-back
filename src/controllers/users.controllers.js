@@ -60,7 +60,7 @@ export default class UsersControllers {
     try {
       const response = await db.query(
         `
-      SELECT "users"."id", "userName", "avatarImg",
+      SELECT "users"."id", "users"."userName", "avatarImg", "users"."biography",
           (SELECT CAST(COUNT("followerUserId") AS INTEGER) FROM follows WHERE "follows"."userId" = $1) AS "followersCount",
           (SELECT CAST(COUNT("follows") AS INTEGER) FROM follows WHERE "follows"."followerUserId" = $1) AS "followingCount",
           (SELECT ARRAY_AGG(
