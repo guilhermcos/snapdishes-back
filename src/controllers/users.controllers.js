@@ -5,12 +5,28 @@ import fs from "fs";
 import { updateAvatarImg } from "../repositories/users.repositories.js";
 
 export default class UsersControllers {
+  async uploadBiography(req, res) {
+    const { userId } = res.locals;
+    const { biography } = req.body;
+    try {
+      await db.query(
+        `
+      UPDATE users SET "biography" = $1 WHERE "users"."id" = $2
+      `,
+        [biography, userId]
+      );
+      res.sendStatus(201);
+    } catch (err) {
+      res.status(500).send(err.message);
+    }
+  }
+
   async followUser(req, res) {
     const { userId } = res.locals;
     const { id: profileId } = req.params;
     try {
       await db.query(
-      `
+        `
       INSERT INTO "follows" ("userId", "followerUserId") VALUES ($1, $2)
       `,
         [profileId, userId]
@@ -26,7 +42,7 @@ export default class UsersControllers {
     const { id: profileId } = req.params;
     try {
       await db.query(
-      `
+        `
       DELETE FROM follows WHERE "follows"."userId" = $1 AND "follows"."followerUserId" = $2
       `,
         [profileId, userId]
@@ -78,7 +94,7 @@ export default class UsersControllers {
     try {
       const response = await db.query(
         `
-          SELECT "users"."id", "userName", "avatarImg",
+          SELECT "users"."id", "userName", "avatarImg","biography",
           (SELECT CAST(COUNT("followerUserId") AS INTEGER) FROM follows WHERE "follows"."userId" = $1) AS "followersCount",
           (SELECT CAST(COUNT("follows") AS INTEGER) FROM follows WHERE "follows"."followerUserId" = $1) AS "followingCount",
           (SELECT ARRAY_AGG(

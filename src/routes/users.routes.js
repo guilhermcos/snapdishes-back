@@ -18,5 +18,6 @@ usersRouter.get("/users/search/:searchString", tokenValidation, usersControllers
 usersRouter.get("/users/profile/:id", tokenValidation, usersControllers.getProfileInfo);
 usersRouter.post("/users/follow/:id", tokenValidation, usersControllers.followUser);
 usersRouter.post("/users/unfollow/:id", tokenValidation, usersControllers.unfollowUser);
+usersRouter.post("/users/upload/biography", tokenValidation, usersControllers.uploadBiography);
 
 export default usersRouter;
