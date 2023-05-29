@@ -5,6 +5,54 @@ import fs from "fs";
 import { updateAvatarImg } from "../repositories/users.repositories.js";
 
 export default class UsersControllers {
+  async getSelfFollowings(req, res) {
+    const { userId } = res.locals;
+    try {
+      const result =
+        (
+          await db.query(
+            `
+      SELECT "users"."id" AS "id",
+      "users"."userName" AS "userName",
+      "users"."name" AS "name",
+      "users"."avatarImg" AS "avatarImg"
+      FROM follows
+      JOIN users ON "follows"."userId" = "users"."id"
+      WHERE "follows"."followerUserId" = $1
+      `,
+            [userId]
+          )
+        )?.rows ?? [];
+      res.status(200).send(result);
+    } catch (err) {
+      res.status(500).send(err.message);
+    }
+  }
+
+  async getSelfFollowers(req, res) {
+    const { userId } = res.locals;
+    try {
+      const result =
+        (
+          await db.query(
+            `
+      SELECT "users"."id" AS "id",
+      "users"."userName" AS "userName",
+      "users"."name" AS "name",
+      "users"."avatarImg" AS "avatarImg"
+      FROM follows
+      JOIN users ON "follows"."followerUserId" = "users"."id"
+      WHERE "follows"."userId" = $1
+      `,
+            [userId]
+          )
+        )?.rows ?? [];
+      res.status(200).send(result);
+    } catch (err) {
+      res.status(500).send(err.message);
+    }
+  }
+
   async uploadBiography(req, res) {
     const { userId } = res.locals;
     const { biography } = req.body;
