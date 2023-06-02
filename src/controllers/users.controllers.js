@@ -172,27 +172,26 @@ export default class UsersControllers {
   }
 
   async setAvatarImage(req, res) {
-    const file = req.file;
-    const { userId } = res.locals;
+    // const file = req.file;
+    const { userId, file } = res.locals;
 
     try {
       const hash = uuid();
-      const fileHashedName = `${hash}_${file.originalname}`;
-      const fileMimeType = file.mimetype;
-      const filePath = req.file.path;
-      const fileContent = fs.createReadStream(filePath);
-      if (!file || !fileMimeType.startsWith("image/")) {
-        return res.status(400).send("Only image files allowed!");
-      }
+      const fileHashedName = `${file.filename}`;
+      const fileMimeType = "image/webp";
+      const filePath = file.path;
+      const fileContent = fs.createReadStream(file.path);
 
       const fileId = await uploadFile(fileHashedName, fileMimeType, fileContent);
-      if (req.file && req.file.path) {
-        fs.unlink(req.file.path, (err) => {
+
+      if (file && file.path) {
+        fs.unlink(file.path, (err) => {
           if (err) {
             console.error("Erro ao excluir o arquivo temporário:", err);
           }
         });
       }
+
       const url = `https://drive.google.com/uc?id=${fileId}`;
 
       await updateAvatarImg(url, userId);

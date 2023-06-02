@@ -2,6 +2,7 @@ import { Router } from "express";
 import UsersControllers from "../controllers/users.controllers.js";
 import tokenValidation from "../middlewares/token.validation.js";
 import multer from "multer";
+import { convertToWebP } from "../middlewares/images.middlewares.js";
 
 const usersControllers = new UsersControllers();
 const usersRouter = Router();
@@ -11,6 +12,7 @@ usersRouter.post(
   "/upload/avatarimage",
   tokenValidation,
   upload.single("image"),
+  convertToWebP,
   usersControllers.setAvatarImage
 );
 usersRouter.get("/users/me", tokenValidation, usersControllers.getSelfProfile);
